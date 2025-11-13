@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Вікіпедія:Правила і настанови</title>
+    <style>
+      /* Основные стили из Вікіпедіи */
+      :root {
+        --border-color-base: #a2a9b1;
+        --background-color-neutral-subtle: #f8f9fa;
+        --background-color-base: #fff;
+        --color-base: #202122;
+        --color-progressive: #36c;
+        --background-color-interactive: #eaecf0;
+        --border-color-muted: #dadde3;
+        --background-color-progressive-subtle: #eaf3ff;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: sans-serif;
+        line-height: 1.6;
+        color: var(--color-base);
+        background-color: var(--background-color-base);
+      }
+
+      /* Стили заголовков */
+      h1,
+      h2,
+      h3,
+      h4 {
+        margin: 1em 0 0.5em;
+        font-weight: normal;
+      }
+
+      h1 {
+        font-size: 1.8em;
+        border-bottom: 1px solid var(--border-color-base);
+        padding-bottom: 0.2em;
+      }
+
+      h2 {
+        font-size: 1.5em;
+        border-bottom: 1px solid var(--border-color-base);
+        padding-bottom: 0.2em;
+      }
+
+      h3 {
+        font-size: 1.3em;
+      }
+
+      /* Стили навигации */
+      .vector-header {
+        background-color: var(--background-color-base);
+        border-bottom: 1px solid var(--border-color-base);
+        padding: 0.5em 1em;
+      }
+
+      .vector-header-container {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background-color: var(--background-color-base);
+      }
+
+      .mw-logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .mw-logo-icon {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+      }
+
+      .mw-logo-wordmark {
+        height: 1.375em;
+        width: auto;
+      }
+
+      .vector-search-box {
+        margin: 0.5em 0;
+      }
+
+      .cdx-text-input {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        max-width: 500px;
+      }
+
+      .cdx-text-input__input {
+        width: 100%;
+        padding: 8px 12px;
+        border: 1px solid var(--border-color-base);
+        border-radius: 2px;
+        font-size: 0.875rem;
+      }
+
+      .cdx-button {
+        display: inline-block;
+        padding: 8px 12px;
+        background-color: var(--background-color-interactive);
+        border: 1px solid var(--border-color-base);
+        border-radius: 2px;
+        cursor: pointer;
+        font-size: 0.875rem;
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .cdx-button--action-progressive {
+        background-color: var(--background-color-progressive-subtle);
+        color: var(--color-progressive);
+        border-color: var(--color-progressive);
+      }
+
+      /* Стили основного контента */
+      .mw-body {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1em;
+      }
+
+      .vector-body-before-content {
+        margin-bottom: 1em;
+      }
+
+      .mw-indicators {
+        float: right;
+        margin-left: 1em;
+      }
+
+      .siteSub {
+        font-size: 0.875rem;
+        color: #54595d;
+      }
+
+      /* Стили боковой панели */
+      .sidebar {
+        width: 22em;
+        float: right;
+        clear: right;
+        margin: 0.5em 0 1em 1em;
+        background: var(--background-color-neutral-subtle);
+        border: 1px solid var(--border-color-base);
+        padding: 0.2em;
+        text-align: center;
+        line-height: 1.4em;
+        font-size: 88%;
+      }
+
+      .sidebar-title {
+        background: #e5eef8;
+        font-size: 175%;
+        line-height: 1em;
+        padding: 0.2em 0.8em;
+      }
+
+      .sidebar-list-title {
+        background: #e5eef8;
+        padding: 0 0.4em;
+        text-align: left;
+        font-weight: bold;
+        line-height: 1.6em;
+        font-size: 105%;
+      }
+
+      .sidebar-content {
+        padding: 0 0.5em 0.4em;
+      }
+
+      .sidebar-list-content ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .sidebar-list-content li {
+        margin-bottom: 0.2em;
+        text-align: left;
+      }
+
+      .sidebar-list-content a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .sidebar-list-content a:hover {
+        text-decoration: underline;
+      }
+
+      /* Стили для уведомлений */
+      .ombox {
+        margin: 4px 0;
+        border-collapse: collapse;
+        border: 1px solid var(--border-color-base);
+        background-color: var(--background-color-neutral-subtle);
+        box-sizing: border-box;
+        color: var(--color-base);
+      }
+
+      .ombox-notice {
+        border: 1px solid #a2a9b1;
+      }
+
+      .mbox-image {
+        padding: 2px 0 2px 0.9em;
+        text-align: center;
+      }
+
+      .mbox-text {
+        border: none;
+        padding: 0.25em 0.9em;
+        width: 100%;
+      }
+
+      /* Стили для навигационных блоков */
+      .navbox {
+        box-sizing: border-box;
+        border: 1px solid var(--border-color-base);
+        width: 100%;
+        clear: both;
+        font-size: 88%;
+        text-align: center;
+        padding: 1px;
+        margin: 1em auto 0;
+      }
+
+      .navbox-title {
+        background-color: #ccf;
+        color: inherit;
+        padding: 0.25em 1em;
+        line-height: 1.5em;
+        text-align: center;
+      }
+
+      .navbox-group {
+        white-space: nowrap;
+        text-align: right;
+        padding: 0.25em 1em;
+        line-height: 1.5em;
+        background-color: #ddf;
+      }
+
+      .navbox-list {
+        line-height: 1.5em;
+        border-color: #fdfdfd;
+        padding: 0 0.25em;
+      }
+
+      .navbox-list ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .navbox-list li {
+        margin-bottom: 0.2em;
+      }
+
+      /* Стили для основного текста */
+      .mw-content-text {
+        line-height: 1.6;
+      }
+
+      .mw-content-text p {
+        margin-bottom: 0.8em;
+      }
+
+      .mw-content-text ul,
+      .mw-content-text ol {
+        margin: 0.5em 0 0.5em 1.5em;
+      }
+
+      .mw-content-text li {
+        margin-bottom: 0.2em;
+      }
+
+      .mw-content-text a {
+        color: var(--color-progressive);
+        text-decoration: none;
+      }
+
+      .mw-content-text a:hover {
+        text-decoration: underline;
+      }
+
+      /* Стили для подвала */
+      .mw-footer {
+        border-top: 1px solid var(--border-color-base);
+        padding: 1em;
+        margin-top: 2em;
+        font-size: 0.75rem;
+      }
+
+      .mw-footer ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .mw-footer li {
+        display: inline-block;
+        margin-right: 1em;
+      }
+
+      .mw-footer a {
+        color: var(--color-progressive);
+        text-decoration: none;
+      }
+
+      .mw-footer a:hover {
+        text-decoration: underline;
+      }
+
+      /* Адаптивность */
+      @media (max-width: 768px) {
+        .sidebar {
+          width: 100%;
+          float: none;
+          margin: 0.5em 0 1em 0;
+        }
+
+        .mw-body {
+          padding: 0.5em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="vector-header-container">
+      <header class="vector-header">
+        <div class="vector-header-start">
+          <nav class="vector-main-menu-landmark" aria-label="Сайт">
+            <div
+              id="vector-main-menu-dropdown"
+              class="vector-dropdown vector-main-menu-dropdown"
+            >
+              <label
+                for="vector-main-menu-dropdown-checkbox"
+                class="vector-dropdown-label cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--weight-quiet cdx-button--icon-only"
+              >
+                <a href="https://uk.wikipedia.org/wiki/Головна_сторінка"
+                  >Головна сторінка</a
+                >
+              </label>
+            </div>
+          </nav>
+
+          <img
+            class="mw-logo"
+            src="https://upload.wikimedia.org/wikipedia/commons/7/73/Wikipedia-logo-for-Ukraine.png"
+            alt="logo"
+            width="100"
+          />
+          <!-- Заглушка для логотипа -->
+        </div>
+        <div class="vector-header-end">
+          <div class="vector-search-box">
+            <div class="cdx-typeahead-search">
+              <form class="cdx-search-input">
+                <div class="cdx-text-input">
+                  <input
+                    class="cdx-text-input__input"
+                    type="search"
+                    name="search"
+                    placeholder="Пошук у Вікіпедії"
+                  />
+                </div>
+                <button class="cdx-button">Знайти</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+
+    <div class="mw-body">
+      <div class="vector-body-before-content">
+        <div class="mw-indicators"></div>
+        <div id="siteSub" class="siteSub">
+          Матеріал з Вікіпедії — вільної енциклопедії.
+        </div>
+      </div>
+
+      <div id="contentSub"></div>
+
+      <div id="mw-content-text">
+        <table class="ombox ombox-notice">
+          <tbody>
+            <tr>
+              <td class="mbox-image">
+                <!-- Заглушка для иконки -->
+                <div
+                  style="
+                    width: 40px;
+                    height: 40px;
+                    background-color: #36c;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                  "
+                >
+                  ✓
+                </div>
+              </td>
+              <td class="mbox-text">
+                <b>Ця сторінка є офіційним правилом української Вікіпедії.</b>
+                Її зміст узгоджено дописувачами й ухвалено як стандарт, якого
+                мають дотримуватись усі користувачі. <br /><small
+                  ><b>Увага:</b> перш ніж редагувати цю сторінку, будь ласка,
+                  переконайтесь, що ваші зміни відображають консенсус.</small
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="sidebar">
+          <tbody>
+            <tr>
+              <th class="sidebar-title">Правила і настанови</th>
+            </tr>
+            <tr>
+              <td class="sidebar-content">
+                <div class="sidebar-list">
+                  <div class="sidebar-list-title" style="background: #e5eef8">
+                    Основні принципи здорового харчування:
+                  </div>
+                  <div class="sidebar-list-content">
+                    <ul>
+                      <li><a href="#">різноманітність продуктів;</a></li>
+                      <li>
+                        <a href="#">помірність у споживанні;</a>
+                      </li>
+                      <li><a href="#">достатня кількість води;</a></li>
+                      <li><a href="#">дотримання режиму харчування;</a></li>
+                      <li>
+                        <a href="#"
+                          >перевага натуральних продуктів над обробленими.</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h1>
+          <span class="mw-page-title-main"
+            >Вплив продуктів харчування на здоров'я людини</span
+          >
+        </h1>
+
+        <p>
+          Харчування — це один із найважливіших чинників, який визначає стан
+          здоров’я, працездатність і тривалість життя людини. Щодня ми отримуємо
+          з їжею енергію та поживні речовини, необхідні для росту, розвитку й
+          підтримання нормальної роботи організму. Збалансоване харчування
+          забезпечує людину всім потрібним, а неправильне — може стати причиною
+          багатьох хвороб.
+        </p>
+
+        <h2>Корисні продукти та їх вплив</h2>
+        <p>
+          Овочі й фрукти — основне джерело вітамінів, мінералів і клітковини.
+          Вони покращують роботу травної системи, очищують організм від
+          токсинів, зміцнюють імунітет і допомагають запобігати серцево-судинним
+          захворюванням.
+        </p>
+        <br />
+        <p>
+          Крупи, цільнозерновий хліб, макарони з твердих сортів пшениці —
+          джерело складних вуглеводів, які дають організму енергію. Вони також
+          містять клітковину, що нормалізує рівень цукру в крові та роботу
+          кишківника.
+        </p>
+        <br />
+        <p>
+          М’ясо, риба, яйця, бобові та горіхи — це будівельний матеріал для
+          клітин. Білки беруть участь у рості м’язів, формуванні ферментів,
+          гормонів і антитіл. Особливо корисна риба, адже містить омега-3 жирні
+          кислоти, які підтримують здоров’я серця та мозку.
+        </p>
+        <br />
+        <p>
+          Молоко, кефір, йогурт, сир — джерело кальцію, фосфору, білка та
+          вітаміну D. Вони зміцнюють кістки, зуби та підтримують мікрофлору
+          кишечника.
+        </p>
+        <br />
+        <p>
+          Організм потребує жирів для нормальної роботи клітин і вироблення
+          гормонів. Корисні жири містяться в оливковій олії, авокадо, горіхах і
+          насінні. Натомість слід обмежувати споживання тваринних жирів і
+          трансжирів, що є у фастфуді та маргарині.
+        </p>
+
+        <h2>Шкідливі продукти та їх наслідки</h2>
+        <p>
+          Надлишок солодкого, жирного чи солоного негативно впливає на організм.
+        </p>
+        <br />
+        <ul style="margin-left: 40px">
+          <li>
+            Фастфуд і напівфабрикати містять багато насичених жирів і солі — це
+            підвищує ризик гіпертонії, ожиріння та діабету.
+          </li>
+          <li>
+            Газовані та солодкі напої спричиняють підвищення рівня цукру в крові
+            та карієс.
+          </li>
+          <li>
+            Надлишок солі затримує рідину в організмі, збільшуючи навантаження
+            на серце й нирки.
+          </li>
+          <li>
+            Надлишок цукру може призвести до інсулінорезистентності та порушень
+            обміну речовин.
+          </li>
+        </ul>
+        <br />
+        <p>
+          Тривале неправильне харчування знижує імунітет, погіршує стан шкіри,
+          волосся та призводить до хронічних хвороб.
+        </p>
+
+        <h2>Раціональне харчування як шлях до здоров’я</h2>
+        <p>
+          Раціональне харчування — це збалансований прийом їжі, який відповідає
+          потребам організму.
+        </p>
+        <br />
+        <ul style="margin-left: 40px">
+          <li>
+            Співвідношення білків, жирів і вуглеводів — приблизно 1 : 1 : 4.
+          </li>
+          <li>Прийоми їжі 3–4 рази на день у певний час.</li>
+          <li>Вживання не менше 1,5–2 літрів води щодня.</li>
+          <li>Зменшення кількості солі, цукру та шкідливих жирів.</li>
+        </ul>
+
+        <h2>Висновки</h2>
+        <p>
+          Здорове харчування — це не просто дієта, а стиль життя. Воно
+          забезпечує гарне самопочуття, зміцнює імунітет, продовжує молодість і
+          запобігає багатьом хворобам. Турбота про раціон — це турбота про
+          власне майбутнє.
+        </p>
+
+        <h2>Список використаних джерел</h2>
+
+        <ol>
+          <li>
+            <a
+              href="https://znaimo.gov.ua/shcho-tobi-dast-zdorove-kharchuvannia"
+              >Що тобі дасть здорове харчування?</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://onclinic.ua/blog/recepty-pravylne-kharchuvannya-z-choho-pochaty"
+              >Правильне харчування: дієта, меню та рецепти</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.unicef.org/ukraine/stories/healthy-nutrition-for-parents"
+              >Здорове харчування — це легко!</a
+            >
+          </li>
+        </ol>
+
+        <div role="navigation" class="navbox">
+          <table class="navbox-inner">
+            <tbody>
+              <tr>
+                <th class="navbox-title" colspan="2">
+                  Правила і настанови Вікіпедії
+                </th>
+              </tr>
+              <tr>
+                <th class="navbox-group">Від засновника</th>
+                <td class="navbox-list">
+                  <ul>
+                    <li>
+                      <a href="#">Заява Джиммі Вейлза про засади Вікіпедії</a>
+                    </li>
+                    <li><a href="#">Ігноруйте всі правила</a></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <th class="navbox-group">Загальні принципи</th>
+                <td class="navbox-list">
+                  <ul>
+                    <li><a href="#">П'ять основ</a></li>
+                    <li><a href="#">Правила і настанови</a></li>
+                    <li><a href="#">Авторські права</a></li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <footer class="mw-footer">
+      <ul id="footer-info">
+        <li id="footer-info-lastmod">
+          Цю сторінку востаннє відредаговано о 14:48, 31 травня 2025.
+        </li>
+        <li id="footer-info-copyright">
+          Текст доступний на умовах ліцензії Creative Commons
+          Attribution-ShareAlike; також можуть діяти додаткові умови.
+        </li>
+      </ul>
+      <ul id="footer-places">
+        <li><a href="#">Політика конфіденційності</a></li>
+        <li><a href="#">Про Вікіпедію</a></li>
+        <li><a href="#">Відмова від відповідальності</a></li>
+        <li><a href="#">Зворотний зв'язок</a></li>
+      </ul>
+    </footer>
+  </body>
+</html>
